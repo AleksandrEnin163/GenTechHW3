@@ -1,0 +1,26 @@
+CREATE TABLE Users (
+id INTEGER primary key autoincrement,
+username VARCHAR(128),
+email VARCHAR(128),
+datetime DATETIME,
+password_hash varchar(128),
+is_blocked BOOL);
+CREATE TABLE Videos (
+id INTEGER primary key autoincrement,
+title VARCHAR(128),
+description VARCHAR(128),
+datetime DATETIME,
+duration_secs INTEGER,
+user_id INTEGER);
+CREATE TABLE Reactions (
+id INTEGER primary key autoincrement,
+video_id INTEGER,
+user_id INTEGER,
+datetime DATETIME,
+type VARCHAR(10) NOT NULL);
+CREATE TABLE Comments (
+id INTEGER primary key autoincrement,
+user_id INTEGER,
+datetime DATETIME,
+video_id INTEGER,
+text TEXT NOT NULL);
